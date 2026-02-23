@@ -74,7 +74,8 @@
     // ========================
     // SCROLL REVEAL ANIMATION
     // ========================
-    const revealElements = document.querySelectorAll('.reveal');
+    const revealSelectors = '.reveal, .reveal-left, .reveal-right, .reveal-scale, .reveal-clip, .stagger-children';
+    const revealElements = document.querySelectorAll(revealSelectors);
 
     const revealObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -84,11 +85,47 @@
             }
         });
     }, {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
+        threshold: 0.08,
+        rootMargin: '0px 0px -60px 0px'
     });
 
     revealElements.forEach(el => revealObserver.observe(el));
+
+    // ========================
+    // HERO PARALLAX ON SCROLL
+    // ========================
+    const heroContent = document.querySelector('.hero-content');
+    const heroOverlay = document.querySelector('.hero-overlay');
+
+    if (heroContent) {
+        let ticking = false;
+        window.addEventListener('scroll', () => {
+            if (!ticking) {
+                requestAnimationFrame(() => {
+                    const scrollY = window.pageYOffset;
+                    const heroH = window.innerHeight;
+                    if (scrollY < heroH) {
+                        const progress = scrollY / heroH;
+                        const opacity = 1 - progress * 1.5;
+                        const translateY = scrollY * 0.3;
+                        const scale = 1 - progress * 0.08;
+                        heroContent.style.opacity = Math.max(0, opacity);
+                        heroContent.style.transform = `translate(-50%, calc(-50% + ${translateY}px)) scale(${scale})`;
+                        if (heroOverlay) {
+                            heroOverlay.style.background = `linear-gradient(
+                                to bottom,
+                                rgba(0,0,0,${0.3 + progress * 0.3}) 0%,
+                                rgba(0,0,0,${0.1 + progress * 0.2}) 40%,
+                                rgba(0,0,0,${0.5 + progress * 0.3}) 100%
+                            )`;
+                        }
+                    }
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        });
+    }
 
     // ========================
     // CONTACT FORM → WHATSAPP
@@ -147,20 +184,32 @@
             if (entry.isIntersecting) {
                 setTimeout(() => {
                     entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }, index * 80);
+                    entry.target.style.transform = 'translateY(0) translateX(0) scale(1) rotate(0deg)';
+                }, index * 120);
                 galleryObserver.unobserve(entry.target);
             }
         });
     }, {
-        threshold: 0.1,
+        threshold: 0.05,
         rootMargin: '0px 0px -30px 0px'
     });
 
-    collageItems.forEach(item => {
+    const directions = [
+        'translateY(25px)',
+        'translateY(20px) scale(0.97)',
+        'translateY(30px)',
+        'translateY(20px) rotate(1deg)',
+        'translateY(35px) scale(0.98)',
+        'translateY(15px)',
+        'translateY(28px) scale(0.97)',
+        'translateY(22px)'
+    ];
+
+    collageItems.forEach((item, i) => {
+        const dir = directions[i % directions.length];
         item.style.opacity = '0';
-        item.style.transform = 'translateY(20px)';
-        item.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        item.style.transform = dir;
+        item.style.transition = `opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1)`;
         galleryObserver.observe(item);
     });
 
