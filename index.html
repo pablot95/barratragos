@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -7,214 +7,235 @@
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
 
-    <!-- Navigation -->
     <nav class="navbar">
         <div class="container nav-container">
-            <div class="logo">
-                <img src="images/logo.jpeg" alt="Momentos Únicos Logo">
-            </div>
+            <a href="#inicio" class="logo">
+                <img src="images/logo.jpeg" alt="Momentos Únicos">
+            </a>
             <ul class="nav-links">
                 <li><a href="#inicio">Inicio</a></li>
                 <li><a href="#concepto">Concepto</a></li>
                 <li><a href="#galeria">Galería</a></li>
-                <li><a href="#contacto" class="btn-nav">Contacto</a></li>
+                <li><a href="#contacto" class="btn-nav">Reservar</a></li>
             </ul>
-            <div class="hamburger">
-                <i class="fas fa-bars"></i>
-            </div>
+            <button class="hamburger" aria-label="Menú">
+                <span></span><span></span><span></span>
+            </button>
         </div>
     </nav>
 
-    <!-- Hero Section -->
     <header id="inicio" class="hero">
         <div class="hero-carousel">
-            <div class="slide active" style="background-image: url('images/barra1.jpeg');"></div>
-            <div class="slide" style="background-image: url('images/mozosirviendo.jpeg');"></div>
-            <div class="slide" style="background-image: url('images/tragos1.jpeg');"></div>
+            <div class="slide active" style="background-image: url('images/barra-espejada.jpg');"></div>
+            <div class="slide" style="background-image: url('images/sirviendocampari.jpg');"></div>
+            <div class="slide" style="background-image: url('images/barra-muelle-chicasonriendo.jpg');"></div>
         </div>
-        <div class="video-overlay"></div>
+        <div class="hero-video-mobile">
+            <video autoplay muted loop playsinline>
+                <source src="images/video-hero-celu.mp4" type="video/mp4">
+            </video>
+        </div>
+        <div class="hero-overlay"></div>
         <div class="hero-content">
-            <h1>Barra de Tragos <span class="accent">Premium</span></h1>
-            <p class="subtitle">Para eventos que dejan huella</p>
-            <a href="https://wa.me/5491131237111?text=Hola,%20quisiera%20consultar%20por%20una%20barra%20de%20tragos%20para%20mi%20evento" target="_blank" class="btn-primary">Pedir Presupuesto</a>
+            <p class="hero-tag">Servicio Premium de Bebidas</p>
+            <h1>Momentos<br><span class="accent">Únicos</span></h1>
+            <p class="hero-subtitle">Barra de tragos para eventos que dejan huella</p>
+            <a href="#contacto" class="btn-hero">Solicitar Presupuesto</a>
         </div>
     </header>
 
-    <!-- Concept Section -->
-    <section id="concepto" class="section-padding">
+    <section id="concepto" class="section-concepto">
         <div class="container">
-            <div class="text-center mb-5">
-                <span class="section-subtitle">Nuestra Propuesta</span>
-                <h2>Experiencias Líquidas</h2>
-                <div class="divider"></div>
-            </div>
-            
-            <div class="concept-layout">
-                <div class="concept-content-left">
+            <div class="concepto-grid">
+                <div class="concepto-text reveal">
+                    <span class="section-label">Nuestra Propuesta</span>
+                    <h2>Experiencias<br>Únicas</h2>
+                    <div class="gold-line"></div>
                     <p class="lead">En <strong>Momentos Únicos</strong> brindamos un servicio integral de bebidas premium para toda clase de eventos.</p>
                     <p>Desde bodas íntimas hasta grandes eventos corporativos, nos encargamos de todo: bebidas importadas, bartenders profesionales, cristalería de lujo y módulos de barra modernos que se adaptan a tu estética.</p>
-                    <div class="features-block">
-                        <ul class="features-list">
-                            <li><i class="fas fa-check"></i> Bartenders Profesionales</li>
-                            <li><i class="fas fa-check"></i> Bebidas Importadas</li>
-                            <li><i class="fas fa-check"></i> Estructuras Modernas</li>
-                            <li><i class="fas fa-check"></i> Cristalería de Vidrio</li>
-                        </ul>
+                    <div class="features-grid">
+                        <div class="feature-item">
+                            <i class="fas fa-cocktail"></i>
+                            <span>Bartenders Profesionales</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-wine-bottle"></i>
+                            <span>Bebidas Importadas</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-gem"></i>
+                            <span>Estructuras Modernas</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-wine-glass-alt"></i>
+                            <span>Cristalería de Vidrio</span>
+                        </div>
                     </div>
                 </div>
-
-                <div class="concept-media-right">
-                    <div class="media-video">
+                <div class="concepto-mosaic reveal">
+                    <div class="mosaic-item mosaic-tall">
                         <video autoplay muted loop playsinline>
-                            <source src="images/WhatsApp Video 2026-01-20 at 19.15.34.mp4" type="video/mp4">
+                            <source src="images/video-hero-celu.mp4" type="video/mp4">
                         </video>
                     </div>
-                    <div class="media-image-1">
-                        <img src="images/barraenmuelle.jpeg" alt="Barra en muelle">
+                    <div class="mosaic-item mosaic-sm">
+                        <img src="images/sillones-patio.jpg" alt="Ambiente premium">
                     </div>
-                    <div class="media-image-2">
-                        <img src="images/tragos3.jpeg" alt="Detalle de tragos">
+                    <div class="mosaic-item mosaic-sm">
+                        <img src="images/tragos4.jpeg" alt="Cocktails de autor">
+                    </div>
+                    <div class="mosaic-item mosaic-wide">
+                        <img src="images/barra-mezclandotrago.jpg" alt="Bartender preparando un trago">
+                    </div>
+                    <div class="mosaic-item mosaic-sm">
+                        <img src="images/vasoconcereza.jpg" alt="Detalle de cocktail">
+                    </div>
+                    <div class="mosaic-item mosaic-sm">
+                        <img src="images/barra-madera.jpg" alt="Barra de madera">
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Event Types -->
-    <section class="events-bar">
+    <section class="events-marquee">
+        <div class="marquee-track">
+            <span>Casamientos</span><span class="diamond">◆</span>
+            <span>Cumpleaños</span><span class="diamond">◆</span>
+            <span>Corporativos</span><span class="diamond">◆</span>
+            <span>Lanzamientos</span><span class="diamond">◆</span>
+            <span>Despedidas</span><span class="diamond">◆</span>
+            <span>Casamientos</span><span class="diamond">◆</span>
+            <span>Cumpleaños</span><span class="diamond">◆</span>
+            <span>Corporativos</span><span class="diamond">◆</span>
+            <span>Lanzamientos</span><span class="diamond">◆</span>
+            <span>Despedidas</span><span class="diamond">◆</span>
+        </div>
+    </section>
+
+    <section id="galeria" class="section-galeria">
         <div class="container">
-            <div class="events-scroll">
-                <span class="event-item">Casamientos</span>
-                <span class="separator">•</span>
-                <span class="event-item">Cumpleaños</span>
-                <span class="separator">•</span>
-                <span class="event-item">Corporativos</span>
-                <span class="separator">•</span>
-                <span class="event-item">Lanzamientos</span>
-                <span class="separator">•</span>
-                <span class="event-item">Despedidas</span>
+            <div class="text-center section-header reveal">
+                <span class="section-label">Portfolio</span>
+                <h2>Nuestra Excelencia<br>en Detalle</h2>
+                <div class="gold-line center"></div>
+            </div>
+
+            <div class="gallery-category reveal">
+                <h3>Estructuras &amp; Diseño</h3>
+                <p class="category-desc">Módulos modernos y elegantes que se integran a la perfección con la estética de tu celebración.</p>
+                <div class="collage collage-barras">
+                    <div class="collage-item ci-1"><img src="images/barra-espejada.jpg" alt="Barra espejada premium"></div>
+                    <div class="collage-item ci-2"><img src="images/barra-madera.jpg" alt="Barra de madera noble"></div>
+                    <div class="collage-item ci-3"><img src="images/barra-gris.jpg" alt="Barra gris elegante"></div>
+                    <div class="collage-item ci-4"><img src="images/barraenmuelle.jpeg" alt="Barra en muelle"></div>
+                    <div class="collage-item ci-5"><img src="images/barra-metal.jpg" alt="Barra metálica"></div>
+                    <div class="collage-item ci-6"><img src="images/barra1.jpeg" alt="Setup premium"></div>
+                </div>
+            </div>
+
+            <div class="gallery-category reveal">
+                <h3>Staff Profesional</h3>
+                <p class="category-desc">Bartenders carismáticos y expertos, comprometidos con brindar una atención impecable.</p>
+                <div class="collage collage-staff">
+                    <div class="collage-item ci-1"><img src="images/sirviendocampari.jpg" alt="Sirviendo Campari"></div>
+                    <div class="collage-item ci-2"><img src="images/mozosirviendo2.jpeg" alt="Bartender en acción"></div>
+                    <div class="collage-item ci-3"><img src="images/sirviendofernet.jpg" alt="Preparando fernet"></div>
+                    <div class="collage-item ci-4"><img src="images/barra-mezclandotrago.jpg" alt="Mezclando cocktail"></div>
+                    <div class="collage-item ci-5"><img src="images/barra-muelle-chicasonriendo.jpg" alt="Momento único"></div>
+                </div>
+            </div>
+
+            <div class="gallery-category reveal">
+                <h3>Cocktails de Autor</h3>
+                <p class="category-desc">Una carta que sorprende: bebidas importadas de primera línea con presentaciones únicas.</p>
+                <div class="collage collage-tragos">
+                    <div class="collage-item ci-1"><img src="images/trago1.jpeg" alt="Cocktail signature"></div>
+                    <div class="collage-item ci-2"><img src="images/trago2.jpeg" alt="Trago refrescante"></div>
+                    <div class="collage-item ci-3"><img src="images/vasoconcereza.jpg" alt="Vaso con cereza"></div>
+                    <div class="collage-item ci-4"><img src="images/trago3.jpeg" alt="Cocktail clásico"></div>
+                    <div class="collage-item ci-5"><img src="images/trago4.jpeg" alt="Presentación gourmet"></div>
+                    <div class="collage-item ci-6"><img src="images/vasosconpepinolimon.jpg" alt="Vasos con pepino y limón"></div>
+                    <div class="collage-item ci-7"><img src="images/fernetygordons.jpg" alt="Fernet y Gordon's"></div>
+                    <div class="collage-item ci-8"><img src="images/cervezas-pileta.jpg" alt="Cervezas en pileta"></div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Gallery Section -->
-    <section id="galeria" class="section-padding bg-light">
+
+    <section id="contacto" class="section-contacto">
         <div class="container">
-            <div class="text-center mb-5">
-                <h2>Nuestra Excelencia en Detalle</h2>
-                <div class="divider"></div>
-            </div>
-
-            <!-- 1. Barras -->
-            <div class="gallery-category mb-5">
-                <div class="text-center mb-4">
-                    <h3>Estructuras y Diseño</h3>
-                    <p class="text-muted">Módulos modernos y elegantes que se integran a la perfección con la estética de tu celebración, creando el punto focal ideal.</p>
-                </div>
-                <div class="gallery-grid">
-                    <div class="gallery-item large">
-                        <img src="images/barra1.jpeg" alt="Barra principal iluminada">
-                    </div>
-                    <div class="gallery-item">
-                        <img src="images/barraenmuelle.jpeg" alt="Setup en exteriores">
-                    </div>
-                    <div class="gallery-item">
-                        <img src="images/barra2.jpeg" alt="Detalle de barra">
-                    </div>
-                    <div class="gallery-item wide">
-                        <img src="images/barra4.jpeg" alt="Estructura completa">
-                    </div>
-                    <div class="gallery-item">
-                        <img src="images/barraenmuelle2.jpeg" alt="Barra rústica chic">
-                    </div>
-                    <div class="gallery-item">
-                        <img src="images/barra5.jpeg" alt="Diseño exclusivo">
-                    </div>
-                </div>
-            </div>
-
-            <!-- 2. Staff (Mozos) -->
-            <div class="gallery-category mb-5">
-                <div class="text-center mb-4">
-                    <h3>Staff Profesional</h3>
-                    <p class="text-muted">Bartenders carismáticos y expertos, comprometidos con brindar una atención cálida y un servicio impecable a cada invitado.</p>
-                </div>
-                <div class="gallery-grid">
-                    <div class="gallery-item wide">
-                        <img src="images/mozosirviendo2.jpeg" alt="Bartender sirviendo">
-                    </div>
-                    <div class="gallery-item">
-                        <img src="images/mozosirviendo.jpeg" alt="Atención al detalle">
-                    </div>
-                    <div class="gallery-item">
-                        <img src="images/mozosirviendo3.jpeg" alt="Servicio premium">
-                    </div>
-                </div>
-            </div>
-
-            <!-- 3. Tragos -->
-            <div class="gallery-category">
-                <div class="text-center mb-4">
-                    <h3>Cocktails de Autor</h3>
-                    <p class="text-muted">Una carta diseñada para sorprender, combinando bebidas importadas de primera línea con sabores frescos y presentaciones únicas.</p>
-                </div>
-                <div class="gallery-grid">
-                    <div class="gallery-item large">
-                        <img src="images/trago1.jpeg" alt="Cocktail Signature">
-                    </div>
-                    <div class="gallery-item">
-                        <img src="images/trago2.jpeg" alt="Trago refrescante">
-                    </div>
-                    <div class="gallery-item">
-                        <img src="images/tragos1.jpeg" alt="Variedad de colores">
-                    </div>
-                    <div class="gallery-item wide">
-                        <img src="images/tragos2.jpeg" alt="Mixología">
-                    </div>
-                    <div class="gallery-item">
-                        <img src="images/tragos4.jpeg" alt="Presentación perfecta">
-                    </div>
-                    <div class="gallery-item">
-                        <img src="images/tragos3.jpeg" alt="Sabores frutales">
-                    </div>
-                    <div class="gallery-item">
-                        <img src="images/tragos5.jpeg" alt="Clásicos reversionados">
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contacto" class="contact-section">
-        <div class="contact-bg-image" style="background-image: url('images/mozosirviendo2.jpeg');"></div>
-        <div class="contact-overlay">
-            <div class="container text-center">
-                <h2>Hablemos de tu Evento</h2>
-                <p>Personalizamos el servicio a la medida de tus necesidades.</p>
-                <div class="contact-buttons">
-                    <a href="https://wa.me/5491131237111?text=Hola,%20me%20interesa%20contratar%20su%20servicio%20de%20barra" target="_blank" class="btn-whatsapp">
-                        <i class="fab fa-whatsapp"></i> +54 9 11 3123-7111
+            <div class="contacto-grid">
+                <div class="contacto-info reveal">
+                    <span class="section-label">Contacto</span>
+                    <h2>Hablemos de<br>tu Evento</h2>
+                    <div class="gold-line"></div>
+                    <p>Personalizamos el servicio a la medida de tus necesidades. Contanos sobre tu evento y te armamos una propuesta a medida.</p>
+                    <a href="https://wa.me/5491131237111?text=Hola,%20me%20interesa%20contratar%20su%20servicio%20de%20barra%20para%20mi%20evento" target="_blank" class="btn-whatsapp-contact">
+                        <i class="fab fa-whatsapp"></i> Escribinos por WhatsApp
                     </a>
-                    <a href="mailto:info@momentosunicos.com" class="btn-email">
-                        <i class="far fa-envelope"></i> Enviar Email
+                    <a href="https://www.instagram.com/momentosunicos_eventos" target="_blank" class="btn-instagram">
+                        <i class="fab fa-instagram"></i> @momentosunicos_eventos
                     </a>
                 </div>
+                <div class="contacto-form-wrapper reveal">
+                    <form id="contactForm" class="contact-form">
+                        <div class="form-group">
+                            <input type="text" name="nombre" placeholder="Tu nombre" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" name="email" placeholder="Tu correo electrónico" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" name="telefono" placeholder="Teléfono" required>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <input type="date" name="fecha" required>
+                                <label class="date-label">Fecha del Evento</label>
+                            </div>
+                            <div class="form-group">
+                                <input type="number" name="personas" placeholder="Cantidad de personas" min="1" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="lugar" placeholder="Lugar del evento" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea name="mensaje" placeholder="Tu mensaje (opcional)" rows="4"></textarea>
+                        </div>
+                        <button type="submit" class="btn-submit">Enviar Consulta</button>
+                    </form>
+                </div>
             </div>
         </div>
     </section>
 
-    <footer>
+    <footer class="main-footer">
         <div class="container">
-            <p>&copy; 2026 Momentos Únicos - Premium Bar Services</p>
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="images/logo.jpeg" alt="Momentos Únicos">
+                </div>
+                <div class="footer-social">
+                    <a href="https://www.instagram.com/momentosunicos_eventos" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://wa.me/5491131237111" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                </div>
+                <p class="footer-copy">&copy; 2026 Momentos Únicos — Premium Bar Services</p>
+                <p class="footer-credits">Developed and Designed by: <a href="https://gokywebs.net" target="_blank">Gokywebs</a></p>
+            </div>
         </div>
     </footer>
+
+    <a href="https://wa.me/5491131237111?text=Hola,%20quisiera%20consultar%20por%20una%20barra%20de%20tragos%20para%20mi%20evento" target="_blank" class="whatsapp-float" aria-label="Chat en WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
 
     <script src="script.js"></script>
 </body>
