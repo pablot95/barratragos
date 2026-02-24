@@ -363,12 +363,7 @@ ul {
     left: 0;
     width: 100%;
     height: 100vh;
-    background: linear-gradient(
-        to bottom,
-        rgba(0, 0, 0, 0.3) 0%,
-        rgba(0, 0, 0, 0.1) 40%,
-        rgba(0, 0, 0, 0.5) 100%
-    );
+    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8));
     z-index: 1;
 }
 
@@ -388,7 +383,7 @@ ul {
 .hero-tag {
     text-transform: uppercase;
     letter-spacing: 5px;
-    font-size: 0.75rem;
+    font-size: 1.1rem;
     font-weight: 500;
     color: var(--gold);
     margin-bottom: 24px;
@@ -510,8 +505,8 @@ ul {
 
 .concepto-mosaic {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 220px 220px 220px 220px;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 220px 220px 220px;
     gap: 10px;
 }
 
@@ -521,7 +516,7 @@ ul {
 }
 
 .mosaic-tall {
-    grid-row: 1 / 3;
+    grid-row: span 2;
 }
 
 .mosaic-tall video {
@@ -545,6 +540,42 @@ ul {
 
 .mosaic-item:hover img {
     transform: scale(1.05);
+}
+
+.video-toggle {
+    position: relative;
+    cursor: pointer;
+}
+
+.video-sound-btn {
+    position: absolute;
+    bottom: 12px;
+    right: 12px;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: var(--white);
+    font-size: 0.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+    z-index: 5;
+}
+
+.video-sound-btn:hover {
+    background: rgba(200, 169, 126, 0.6);
+    transform: scale(1.1);
+}
+
+.video-sound-btn.unmuted {
+    background: rgba(200, 169, 126, 0.5);
+    border-color: var(--gold);
 }
 
 
@@ -664,21 +695,39 @@ ul {
 
 
 .collage-barras {
-    grid-template-columns: repeat(3, 1fr);
-    grid-auto-rows: 280px;
+    grid-template-columns: 2fr 3fr 2fr;
+    grid-template-rows: 400px 300px 280px;
 }
 
 .collage-barras .ci-1 {
-    grid-column: span 2;
     grid-row: span 2;
 }
 
-.collage-barras .ci-5 {
-    grid-column: span 2;
+.collage-barras .ci-3 {
+    grid-column: span 1;
+    grid-row: span 2;
 }
+.collage-barras .ci-4 {
+    grid-column: span 2;
+    grid-row: span 1;
+}
+
+.collage-barras .ci-5 {
+    grid-column: span 1;
+}
+
 
 .collage-barras .ci-7 {
     grid-column: span 1;
+}
+
+.collage-barras .ci-8 {
+    grid-row: span 1;
+}
+
+.collage-barras .ci-9 {
+    grid-column: span 1;
+    grid-row: span 1;
 }
 
 
@@ -699,6 +748,13 @@ ul {
     grid-column: span 2;
 }
 
+.collage-video video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
 
 .collage-tragos {
     grid-template-columns: repeat(4, 1fr);
@@ -713,6 +769,135 @@ ul {
 .collage-tragos .ci-6 {
     grid-column: span 2;
 }
+
+.collage-tragos .ci-10 {
+    grid-column: span 2;
+}
+
+
+.section-resenas {
+    padding: 120px 0;
+    background: var(--dark-soft);
+    position: relative;
+    z-index: 3;
+    overflow-x: clip;
+}
+
+.resenas-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    margin-bottom: 50px;
+}
+
+.resena-card {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 32px 28px;
+    transition: var(--transition);
+    position: relative;
+}
+
+.resena-card:hover {
+    background: rgba(255, 255, 255, 0.07);
+    border-color: rgba(200, 169, 126, 0.2);
+    transform: translateY(-4px);
+}
+
+.resena-stars {
+    display: flex;
+    gap: 3px;
+    margin-bottom: 20px;
+}
+
+.resena-stars i {
+    color: var(--gold);
+    font-size: 0.75rem;
+}
+
+.resena-text {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.88rem;
+    line-height: 1.8;
+    margin-bottom: 24px;
+    font-style: italic;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.05rem;
+}
+
+.resena-author {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    padding-top: 16px;
+}
+
+.resena-name {
+    color: var(--white);
+    font-weight: 600;
+    font-size: 0.8rem;
+    letter-spacing: 0.5px;
+}
+
+.resena-event {
+    color: var(--gold);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 500;
+}
+
+.resenas-google {
+    text-align: center;
+}
+
+.google-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 16px;
+    padding: 20px 40px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+}
+
+.google-badge > i {
+    font-size: 2rem;
+    color: var(--white);
+    opacity: 0.9;
+}
+
+.google-badge > div {
+    text-align: left;
+}
+
+.google-rating {
+    color: var(--white);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.8rem;
+    font-weight: 600;
+    line-height: 1;
+    display: block;
+}
+
+.google-stars {
+    display: flex;
+    gap: 2px;
+    margin: 4px 0;
+}
+
+.google-stars i {
+    color: #FBBC04;
+    font-size: 0.65rem;
+}
+
+.google-count {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.72rem;
+    letter-spacing: 0.5px;
+}
+
 
 .section-contacto {
     padding: 120px 0;
@@ -1115,13 +1300,13 @@ ul {
     }
 
     .concepto-mosaic {
-        grid-template-columns: 1fr 1fr 1fr;
-        grid-template-rows: 200px 200px 200px 200px;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 200px 200px 200px;
         gap: 10px;
     }
 
     .mosaic-tall {
-        grid-row: 1 / 3;
+        grid-row: span 2;
     }
 
     .mosaic-wide {
@@ -1141,6 +1326,10 @@ ul {
     .collage-tragos .ci-1 {
         grid-column: span 2;
         grid-row: span 2;
+    }
+
+    .resenas-grid {
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
@@ -1254,13 +1443,13 @@ ul {
 
     .concepto-mosaic {
         grid-template-columns: 1fr 1fr;
-        grid-template-rows: 220px 160px 180px 160px;
+        grid-template-rows: 180px 180px 180px;
         gap: 8px;
     }
 
     .mosaic-tall {
-        grid-column: 1 / 3;
-        grid-row: 1;
+        grid-column: auto;
+        grid-row: span 2;
     }
 
     .mosaic-wide {
@@ -1310,7 +1499,7 @@ ul {
 
     .collage-barras {
         grid-template-columns: 5fr 4fr;
-        grid-template-rows: 220px 160px 180px 160px;
+        grid-template-rows: 300px 200px 220px 200px 220px;
         gap: 8px;
     }
 
@@ -1325,6 +1514,7 @@ ul {
 
     .collage-barras .ci-3 {
         grid-column: 2;
+        grid-row: span 1;
     }
 
     .collage-barras .ci-4 {
@@ -1343,10 +1533,18 @@ ul {
         grid-column: 2;
     }
 
+    .collage-barras .ci-8 {
+        grid-column: 1;
+    }
+
+    .collage-barras .ci-9 {
+        grid-column: 2;
+    }
+
 
     .collage-staff {
         grid-template-columns: 3fr 4fr;
-        grid-template-rows: 220px 170px 170px;
+        grid-template-rows: 220px 170px 170px 200px;
         gap: 8px;
     }
 
@@ -1371,10 +1569,13 @@ ul {
         grid-column: 2;
     }
 
+    .collage-staff .ci-6 {
+        grid-column: span 2;
+    }
 
     .collage-tragos {
         grid-template-columns: 4fr 5fr;
-        grid-template-rows: 200px 160px 170px 150px;
+        grid-template-rows: 200px 160px 170px 150px 160px;
         gap: 8px;
     }
 
@@ -1411,6 +1612,14 @@ ul {
         grid-column: 2;
     }
 
+    .collage-tragos .ci-9 {
+        grid-column: 1;
+    }
+
+    .collage-tragos .ci-10 {
+        grid-column: 2;
+    }
+
 
     .section-contacto {
         padding: 80px 0;
@@ -1441,6 +1650,41 @@ ul {
     }
 
 
+    .section-resenas {
+        padding: 80px 0;
+    }
+
+    .resenas-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+    }
+
+    .resena-card {
+        padding: 20px 16px;
+    }
+
+    .resena-text {
+        font-size: 0.88rem;
+        line-height: 1.6;
+        margin-bottom: 16px;
+    }
+
+    .resena-name {
+        font-size: 0.72rem;
+    }
+
+    .resena-event {
+        font-size: 0.6rem;
+    }
+
+    .google-badge {
+        padding: 16px 28px;
+    }
+    .cardweb{
+        display: none;
+    }
+
+
     .whatsapp-float {
         bottom: 16px;
         right: 16px;
@@ -1457,20 +1701,20 @@ ul {
     }
 
     .hero-tag {
-        font-size: 0.65rem;
+        font-size: 1.2rem;
         letter-spacing: 3px;
     }
 
     .collage-barras {
-        grid-template-rows: 180px 130px 150px 130px;
+        grid-template-rows: 170px 120px 140px 120px 150px;
     }
 
     .collage-staff {
-        grid-template-rows: 180px 140px 140px;
+        grid-template-rows: 180px 140px 140px 170px;
     }
 
     .collage-tragos {
-        grid-template-rows: 170px 130px 140px 120px;
+        grid-template-rows: 160px 120px 130px 110px 120px;
     }
 
     .contacto-form-wrapper {

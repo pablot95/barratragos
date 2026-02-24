@@ -175,6 +175,45 @@
     }
 
     // ========================
+    // VIDEO SOUND TOGGLE
+    // ========================
+    document.querySelectorAll('.video-toggle').forEach(container => {
+        const video = container.querySelector('video');
+        const btn = container.querySelector('.video-sound-btn');
+        if (!video || !btn) return;
+
+        const toggleSound = () => {
+            // Mute all other videos first
+            document.querySelectorAll('.video-toggle video').forEach(v => {
+                if (v !== video) {
+                    v.muted = true;
+                    const otherBtn = v.closest('.video-toggle').querySelector('.video-sound-btn');
+                    if (otherBtn) {
+                        otherBtn.classList.remove('unmuted');
+                        otherBtn.querySelector('i').className = 'fas fa-volume-mute';
+                    }
+                }
+            });
+
+            video.muted = !video.muted;
+            if (video.muted) {
+                btn.classList.remove('unmuted');
+                btn.querySelector('i').className = 'fas fa-volume-mute';
+            } else {
+                btn.classList.add('unmuted');
+                btn.querySelector('i').className = 'fas fa-volume-up';
+            }
+        };
+
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            toggleSound();
+        });
+
+        container.addEventListener('click', toggleSound);
+    });
+
+    // ========================
     // GALLERY ITEMS STAGGER
     // ========================
     const collageItems = document.querySelectorAll('.collage-item');
