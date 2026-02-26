@@ -194,7 +194,7 @@ ul {
 }
 
 .navbar.scrolled {
-    background: rgba(13, 13, 13, 0.95);
+    background: rgba(0, 0, 0, 1);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     padding: 4px 0;
@@ -212,7 +212,6 @@ ul {
     display: flex;
     align-items: center;
     gap: 12px;
-    background: var(--cream);
     padding: 0px 12px;
     border-radius: 8px;
 }
@@ -1178,15 +1177,15 @@ ul {
     position: fixed;
     bottom: 30px;
     right: 30px;
-    width: 60px;
-    height: 60px;
+    width: 75px;
+    height: 75px;
     background: #25D366;
     color: var(--white);
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 50%;
-    font-size: 1.6rem;
+    font-size: 2.2rem;
     z-index: 999;
     transition: var(--transition);
     box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
@@ -1688,9 +1687,9 @@ ul {
     .whatsapp-float {
         bottom: 16px;
         right: 16px;
-        width: 52px;
-        height: 52px;
-        font-size: 1.3rem;
+        width: 84px;
+        height: 84px;
+        font-size: 2.8rem;
     }
 }
 
