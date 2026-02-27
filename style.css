@@ -217,7 +217,7 @@ ul {
 }
 
 .logo img {
-    height: 55px;
+    height: 75px;
     object-fit: contain;
     border-radius: 8px;
     transition: var(--transition);
@@ -225,7 +225,7 @@ ul {
 
 
 .navbar.scrolled .logo img {
-    height: 45px;
+    height: 65px;
 }
 
 .nav-links {
