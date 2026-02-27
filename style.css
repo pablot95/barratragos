@@ -211,7 +211,7 @@ ul {
 .logo {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 2px;
     padding: 0px 12px;
     border-radius: 8px;
 }
@@ -222,6 +222,7 @@ ul {
     border-radius: 8px;
     transition: var(--transition);
 }
+
 
 .navbar.scrolled .logo img {
     height: 45px;
