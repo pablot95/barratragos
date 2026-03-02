@@ -1,4 +1,9 @@
-﻿document.addEventListener('DOMContentLoaded', () => {
+﻿// ========================
+// EMAILJS INIT
+// ========================
+emailjs.init({ publicKey: '4zFRSl01N4CaThXJc' });
+
+document.addEventListener('DOMContentLoaded', () => {
 
     // ========================
     // HAMBURGER MENU
@@ -128,11 +133,13 @@
     }
 
     // ========================
-    // CONTACT FORM → WHATSAPP
+    // CONTACT FORM → EMAILJS + WHATSAPP
     // ========================
     const contactForm = document.getElementById('contactForm');
 
     if (contactForm) {
+        const submitBtn = contactForm.querySelector('.btn-submit');
+
         contactForm.addEventListener('submit', (e) => {
             e.preventDefault();
 
@@ -156,21 +163,58 @@
                 });
             }
 
-            const text = [
-                `¡Hola! Soy *${nombre}*.`,
-                ``,
-                `📧 Email: ${email}`,
-                `📱 Teléfono: ${telefono}`,
-                `📅 Fecha del evento: ${fechaFormateada}`,
-                `👥 Cantidad de personas: ${personas}`,
-                `📍 Lugar: ${lugar}`,
-                mensaje ? `💬 Mensaje: ${mensaje}` : '',
-                ``,
-                `Quisiera recibir más información sobre su servicio de barra de tragos. ¡Gracias!`
-            ].filter(line => line !== undefined).join('\n');
+            // Loading state
+            submitBtn.textContent = 'Enviando...';
+            submitBtn.disabled = true;
 
-            const url = `https://wa.me/5491131237111?text=${encodeURIComponent(text)}`;
-            window.open(url, '_blank');
+            // Send via EmailJS
+            const templateParams = {
+                nombre,
+                email,
+                telefono,
+                fecha: fechaFormateada,
+                personas,
+                lugar,
+                mensaje
+            };
+
+            emailjs.send('service_03gfv88', 'template_gtesjr4', templateParams)
+                .then(() => {
+                    submitBtn.textContent = '¡Mensaje enviado!';
+                    submitBtn.style.background = 'linear-gradient(135deg, #2e7d32, #43a047)';
+                    contactForm.reset();
+
+                    // Redirect to WhatsApp after 1.5 s
+                    const waText = [
+                        `¡Hola! Soy *${nombre}*.`,
+                        ``,
+                        `📧 Email: ${email}`,
+                        `📱 Teléfono: ${telefono}`,
+                        `📅 Fecha del evento: ${fechaFormateada}`,
+                        `👥 Cantidad de personas: ${personas}`,
+                        `📍 Lugar: ${lugar}`,
+                        mensaje ? `💬 Mensaje: ${mensaje}` : '',
+                        ``,
+                        `Quisiera recibir más información sobre su servicio de barra de tragos. ¡Gracias!`
+                    ].filter(line => line !== undefined).join('\n');
+
+                    setTimeout(() => {
+                        window.open(`https://wa.me/5491131237111?text=${encodeURIComponent(waText)}`, '_blank');
+                        submitBtn.textContent = 'Enviar Consulta';
+                        submitBtn.style.background = '';
+                        submitBtn.disabled = false;
+                    }, 1500);
+                })
+                .catch((err) => {
+                    console.error('EmailJS error:', err);
+                    submitBtn.textContent = 'Error al enviar. Intentá de nuevo.';
+                    submitBtn.style.background = 'linear-gradient(135deg, #c62828, #e53935)';
+                    setTimeout(() => {
+                        submitBtn.textContent = 'Enviar Consulta';
+                        submitBtn.style.background = '';
+                        submitBtn.disabled = false;
+                    }, 3000);
+                });
         });
     }
 
