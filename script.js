@@ -1,13 +1,7 @@
-﻿// ========================
-// EMAILJS INIT
-// ========================
-emailjs.init({ publicKey: '4zFRSl01N4CaThXJc' });
+﻿emailjs.init({ publicKey: '4zFRSl01N4CaThXJc' });
 
 document.addEventListener('DOMContentLoaded', () => {
 
-    // ========================
-    // HAMBURGER MENU
-    // ========================
     const hamburger = document.querySelector('.hamburger');
     const navLinks = document.querySelector('.nav-links');
 
@@ -19,7 +13,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Close mobile menu on link click
     document.querySelectorAll('.nav-links a').forEach(link => {
         link.addEventListener('click', () => {
             if (navLinks.classList.contains('active')) {
@@ -30,9 +23,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // ========================
-    // SMOOTH SCROLL
-    // ========================
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
@@ -45,9 +35,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // ========================
-    // NAVBAR SCROLL EFFECT
-    // ========================
     const navbar = document.querySelector('.navbar');
     let lastScroll = 0;
 
@@ -61,9 +48,6 @@ document.addEventListener('DOMContentLoaded', () => {
         lastScroll = currentScroll;
     });
 
-    // ========================
-    // HERO CAROUSEL (Desktop)
-    // ========================
     const slides = document.querySelectorAll('.hero-carousel .slide');
     if (slides.length > 0) {
         let currentSlide = 0;
@@ -76,9 +60,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }, slideInterval);
     }
 
-    // ========================
-    // SCROLL REVEAL ANIMATION
-    // ========================
     const revealSelectors = '.reveal, .reveal-left, .reveal-right, .reveal-scale, .reveal-clip, .stagger-children';
     const revealElements = document.querySelectorAll(revealSelectors);
 
@@ -96,9 +77,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     revealElements.forEach(el => revealObserver.observe(el));
 
-    // ========================
-    // HERO PARALLAX ON SCROLL
-    // ========================
     const heroContent = document.querySelector('.hero-content');
     const heroOverlay = document.querySelector('.hero-overlay');
 
@@ -132,9 +110,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // ========================
-    // CONTACT FORM → EMAILJS + WHATSAPP
-    // ========================
     const contactForm = document.getElementById('contactForm');
 
     if (contactForm) {
@@ -152,7 +127,6 @@ document.addEventListener('DOMContentLoaded', () => {
             const lugar = formData.get('lugar') || '';
             const mensaje = formData.get('mensaje') || '';
 
-            // Format date for readability
             let fechaFormateada = fecha;
             if (fecha) {
                 const d = new Date(fecha + 'T00:00:00');
@@ -163,11 +137,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
             }
 
-            // Loading state
             submitBtn.textContent = 'Enviando...';
             submitBtn.disabled = true;
 
-            // Send via EmailJS
             const templateParams = {
                 nombre,
                 email,
@@ -184,7 +156,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     submitBtn.style.background = 'linear-gradient(135deg, #2e7d32, #43a047)';
                     contactForm.reset();
 
-                    // Redirect to WhatsApp after 1.5 s
                     const waText = [
                         `¡Hola! Soy *${nombre}*.`,
                         ``,
@@ -218,16 +189,12 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // ========================
-    // VIDEO SOUND TOGGLE
-    // ========================
     document.querySelectorAll('.video-toggle').forEach(container => {
         const video = container.querySelector('video');
         const btn = container.querySelector('.video-sound-btn');
         if (!video || !btn) return;
 
         const toggleSound = () => {
-            // Mute all other videos first
             document.querySelectorAll('.video-toggle video').forEach(v => {
                 if (v !== video) {
                     v.muted = true;
@@ -257,9 +224,6 @@ document.addEventListener('DOMContentLoaded', () => {
         container.addEventListener('click', toggleSound);
     });
 
-    // ========================
-    // GALLERY ITEMS STAGGER
-    // ========================
     const collageItems = document.querySelectorAll('.collage-item');
 
     const galleryObserver = new IntersectionObserver((entries) => {
